@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('meals', function (Blueprint $table) {
             $table->id('id');
-            $table->string('title')->default('');
-            $table->string('description')->default('');
+            $table->string('title')->default('Pasta');
+            $table->string('description')->default('No information.');
             $table->string('slug');
-            $table->unsignedBigInteger('category_id')->default(7);
+            $table->unsignedBigInteger('category_id');
             $table->timestamps();
             $table->softDeletes();
         });

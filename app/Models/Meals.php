@@ -18,7 +18,7 @@ class Meals extends Model
     use Translatable;
 
     public $translatedAttributes = ['title', 'description'];
-    protected $fillable = ['title', 'slug', 'description'];
+    protected $fillable = ['title', 'description', 'slug', 'category_id'];
 
     public function category()
     {

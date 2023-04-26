@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id('id');
             $table->unsignedBigInteger('meal_id');
             $table->string('title');
+            $table->string('description');
+            $table->string('slug');
             $table->string('locale')->index();
             $table->unique(['meal_id', 'locale']);
             $table->foreign('meal_id')->references('id')->on('meals')->onDelete('cascade');
