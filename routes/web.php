@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('list', [MealController::class, 'show']); 
+
+Route::get('search', 'MealController@search');

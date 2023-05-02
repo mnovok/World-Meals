@@ -13,7 +13,7 @@ class MealsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //$faker = Faker::create();
-        //$meal-> $faker->sentence(20);
+        $faker = Faker::create();
+        $meal-> $faker->sentence(20);
     }
 }
