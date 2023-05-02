@@ -1,2 +1,2 @@
-Run php artisan migrate --seed__
+Run php artisan migrate --seed_
 Run php artisan serve
