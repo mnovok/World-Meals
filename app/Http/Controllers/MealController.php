@@ -11,27 +11,31 @@ class MealController extends Controller
 {
     public function index()
     {
-        return view('meals');
+        $meals = Meals::all()->toArray();
+        return view('list', compact('meals'));
     }
 
     public function show()
     {
-        $data = Meals::all();
-        return view ('list', ['meals' => $data]);
+        $meals = Meals::all();
+        return view ('list', ['meals' => $meals]);
     }
 
-    public function search()
+    public function search(Request $request)
     {
-        $search_text = $_GET['query'];
-        $meals = Meals::where('title', 'LIKE', '%'.$search_text.'%')->with('category')->get();
+      if($request->isMethod('post'))
+      {
+        $name = $request->get('name');
+        $meals = Meals::where('title', 'LIKE', '%'. $name . '%')->paginate(5); 
+      } 
 
-        return view('meals.search', compact('meals'));
+      return view('list', compact('meals'));
     }
 
 
     public function getMeals()
     {
-        $allMeals = Meals::orderby('id', 'asc')->DB::select('*')->get();
+        $allMeals = Meals::orderby('id', 'asc')->select('*')->get();
 
         $response['data'] = $allMeals;
 

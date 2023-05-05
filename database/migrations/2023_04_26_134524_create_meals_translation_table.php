@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('meals_translation', function (Blueprint $table) {
             $table->id('id');
-            $table->unsignedBigInteger('meal_id');
+            $table->unsignedBigInteger('meals_id');
             $table->string('title');
             $table->string('description');
-            $table->string('slug');
+            $table->string('slug')->default('none');
             $table->string('locale')->index();
-            $table->unique(['meal_id', 'locale']);
-            $table->foreign('meal_id')->references('id')->on('meals')->onDelete('cascade');
+            $table->unique(['meals_id', 'locale']);
+            $table->foreign('meals_id')->references('id')->on('meals')->onDelete('cascade');
         });
     }
 

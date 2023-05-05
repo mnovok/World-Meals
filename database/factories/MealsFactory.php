@@ -18,7 +18,7 @@ class MealsFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->title(),
+            'title' => $this->faker->words(2, true),
             'description' => $this->faker->sentence(4, true),
             'slug' => $this->faker->words(1, true),
             'category_id' => $this->faker->numberBetween(1, 10)

@@ -7,16 +7,14 @@
 
 <body>
     <div class="container my-5 py-5 px-5 mx-5">
-    <form>
-    <input
-    type="search"
-    class="form-control"
-    placeholder="Find meal here"
-    name="search"
-    value="{{ request('search') }}"
->
+    <form action="{{url('/search-record')}}" method="post">
+        {{csrf_field()}}
+        <input type="search" name="name" placeholder="Enter meal title" value="{{$name}}"/>
+        <input type="submit" value="Search"/>
     </form>
+
         <h1 style="color: palevioletred;">List of Meals</h1><br>
+
         <table border="1">
     <thead>
       <tr>
@@ -36,8 +34,6 @@
       </tr>
       @endforeach 
     </thead>
-    <tbody>
-    </tbody>
         </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

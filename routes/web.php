@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MealController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +21,10 @@ Route::get('/', function () {
 
 Route::get('list', [MealController::class, 'show']); 
 
-Route::get('search', 'MealController@search');
+Route::get('search', [MealController::class, 'search']);
+
+Route::get('/', [MealController::class, 'index']);
+Route::get('/getMeals', [MealController::class, 'getMeals']);
+Route::post('/getMealsByCategory', [MealController::class, 'getMealsByCategory']);
+
+Route::post('search-record', 'App\Http\Controllers\MealController@search');
